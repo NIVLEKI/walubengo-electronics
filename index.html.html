@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Walubengo Electronics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: rgb(0, 179, 255);
+            color: yellow;
+            padding: 10px 0;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        header ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header ul li a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            max-height: 400px;
+        }
+
+        .btn {
+            padding: 3px 8px;
+            background-color: rgb(60, 152, 99);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .product img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+       }
+
+       section ul {
+         color:red;
+       }
+
+         #services, #products, #about, #contact {
+            padding: 50px 20px;
+            background-color: rgb(178, 201, 26);
+            text-align: center;
+        }
+        #home {
+            padding: 50px 20px;
+            
+            text-align: center;
+        }
+            
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>WALUBENGO ONLINE SHOP</h1>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="carousel-container">
+            <div class="picture">
+                <img src="images/dell.jpg" alt="dell laptop"/>
+                <img src="images/hp.jpg" alt="hp laptop">
+                <img src="images/iphonee.jpg" alt="iphone">
+            </div>
+        </div>
+        <div class="hero-text">
+            <h2>Welcome to My shop</h2>
+            <p>Your best shop! We sell quality products with cheap prices. Our products are durable and have warranty.</p>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-container">
+            <div class="service">
+                <h3>1. Purchase</h3>
+                <p>We sell high quality products. Our products are durable and have warranty.</p>
+            </div>
+            <div class="service">
+                <h3>2. Delivery</h3>
+                <p>We deliver goods countywide and on time, ensuring they are secure for our customers.</p>
+            </div>
+            <div class="service">
+                <h3>3. Repair and Maintenance</h3>
+                <p>Our skilled personnel help with repairs and replacements for faulty devices.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are a leading provider of business solutions, offering quality products and reliable goods.</p>
+        <p>Tel No: 0748091915 | Email: walubengowderick@gmail.com</p>
+    </section>
+
+    <hr>
+
+    <section id="products">
+        <h2>Products</h2>
+        <div class="product-container">
+            <div class="product">
+                <img src="images/iphone.jpg" alt="iphone">
+                <h3>iphone</h3>
+                <p>KSH 175000</p>
+                <button class="btn" onclick="openPaymentModal('iphone', 175000)">Buy Now</button>
+            </div>
+            <div class="product">
+                <img src="images/h.p.jpg" alt="HP Laptop">
+                <h3>HP Laptop</h3>
+                <p>KSH 28000</p>
+                <button class="btn" onclick="openPaymentModal('HP Laptop', 28000)">Buy Now</button>
+            </div>
+            <div class="product">
+                <img src="images/delll.jpg" alt="Dell Laptop">
+                <h3>Dell Laptop</h3>
+                <p>KSH 32000</p>
+                <button class="btn" onclick="openPaymentModal('Dell Laptop', 32000)">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+    
+       
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+
+        <div class="contact-links">
+            <h3>Other Ways to Contact Us:</h3>
+            <ul>
+                <a href="mailto:walubengowderick@gmail.com" class="btn">Send Email</a></li>
+                <a href="https://wa.me/254748091915?text=Hello%20I%20would%20like%20to%20inquire%20about%20your%20products" target="_blank" class="btn">Chat on WhatsApp</a></li>
+                <a href="tel:+254748091915" class="btn">Call Us</a></li>
+                <a href="sms:+254748091915?body=Hello,%20I%20would%20like%20to%20inquire%20about%20your%20products" class="btn">Send SMS</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Walubengo Online Shop. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closePaymentModal()" style="cursor:pointer;">&times;</span>
+            <h2>Payment</h2>
+            <p id="modalMessage"></p>
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" placeholder="Enter your phone number" required>
+            <label for="amount">Amount (KSH):</label>
+            <input type="number" id="amount" placeholder="Enter amount" required>
+            <button onclick="processPayment()" class="btn">Pay Now</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+
+        // Carousel Functionality
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.carousel-slide img');
+            currentSlide = (currentSlide + step + slides.length) % slides.length;
+            document.querySelector('.carousel-slide').style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Open Payment Modal
+        function openPaymentModal(productName, price) {
+            document.getElementById("paymentModal").style.display = "block";
+        
+            document.getElementById("modalMessage").innerText = ""; // Clear previous messages
+            document.getElementById("amount").value = price; // Set the amount automatically
+        }
+
+        // Close Payment Modal
+        function closePaymentModal() {
+            document.getElementById("paymentModal").style.display = "none";
+        }
+
+        // Process Payment
+        function processPayment() {
+            const phone = document.getElementById("phone").value;
+            const amount = document.getElementById("amount").value;
+            const modalMessage = document.getElementById("modalMessage");
+
+            // Validate phone number and amount
+            const phoneRegex = /^(?:\+254|07)\d{8}$/;
+
+            if (!phoneRegex.test(phone)) {
+                modalMessage.innerText = "Invalid phone number. Please enter a valid Kenyan phone number starting with +254 or 07.";
+                modalMessage.classList.add('error');
+                modalMessage.classList.remove('success');
+                return;
+            }
+
+            if (amount <= 0) {
+                modalMessage.innerText = "Please enter a valid amount greater than 0.";
+                modalMessage.classList.add('error');
+                modalMessage.classList.remove('success');
+                return;
+            }
+
+            // Simulate transaction success or failure
+            const transactionSuccess = Math.random() < 0.5; // 50% chance of success for demo purposes
+
+            if (transactionSuccess) {
+                modalMessage.innerText = `Payment successful! KSH ${amount} has been charged to ${phone}.`;
+                modalMessage.classList.remove('error');
+                modalMessage.classList.add('success');
+            } else {
+                modalMessage.innerText = "Payment failed. Please try again later.";
+                modalMessage.classList.add('error');
+                modalMessage.classList.remove('success');
+            }
+        }
+
+        // Carousel Controls
+        document.addEventListener('DOMContentLoaded', () => {
+            setInterval(() => moveSlide(1), 3000); // Automatically change slide every 3 seconds
+        });
+    </script>
+</body>
+</html>
+            
